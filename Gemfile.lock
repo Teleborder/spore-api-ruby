@@ -1,0 +1,26 @@
+PATH
+  remote: .
+  specs:
+    spore-api (1.0.0)
+      faraday (~> 0.8)
+      htmlentities (~> 4.3)
+      multi_json (~> 1.8)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dotenv (2.0.1)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    htmlentities (4.3.3)
+    multi_json (1.11.0)
+    multipart-post (2.0.0)
+    rake (10.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dotenv (~> 2.0)
+  rake
+  spore-api!
