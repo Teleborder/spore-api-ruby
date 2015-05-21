@@ -3,6 +3,7 @@ require 'faraday_middleware'
 # require 'spore/error'
 require 'spore/version'
 require 'spore/client/users'
+require 'spore/client/cells'
 # require 'spore/response/parse_json'
 # require 'spore/response/raise_error'
 
@@ -10,6 +11,7 @@ module Spore
 
   class Client
     include Spore::Client::Users
+    include Spore::Client::Cells
 
     attr_reader :email
     attr_reader :name
