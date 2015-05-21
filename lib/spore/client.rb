@@ -63,7 +63,11 @@ module Spore
     end
 
     def request(method, path, parameters = {})
-      connection.send(method.to_sym, path, parameters).env
+      response = connection.send(method.to_sym, path, parameters)
+      if error = response.body["error"]
+        raise error["message"]
+      end
+      response
     rescue Faraday::Error::ClientError
       raise Spore::RequestError
     end
