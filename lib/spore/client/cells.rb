@@ -7,7 +7,7 @@ module Spore
         response.body["cell"]
       end
 
-      def cell(app_id, environment, cell_id)
+      def get_cell(app_id, environment, cell_id)
         path = "/apps/#{app_id}/envs/#{environment}/cells/#{cell_id}"
         response = get path
         response.body["cell"]
