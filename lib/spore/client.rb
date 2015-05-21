@@ -4,6 +4,7 @@ require 'faraday_middleware'
 require 'spore/version'
 require 'spore/client/users'
 require 'spore/client/cells'
+require 'spore/client/apps'
 # require 'spore/response/parse_json'
 # require 'spore/response/raise_error'
 
@@ -12,6 +13,7 @@ module Spore
   class Client
     include Spore::Client::Users
     include Spore::Client::Cells
+    include Spore::Client::Apps
 
     attr_reader :email
     attr_reader :name
@@ -74,7 +76,7 @@ module Spore
 
     def connection
       Faraday.new(api_endpoint) do |conn|
-        conn.basic_auth(email || name, key) if signed_in?
+        conn.basic_auth(email, key) if signed_in?
         conn.request :url_encoded
         conn.response :json, :content_type => /\bjson$/
         conn.adapter  Faraday.default_adapter
