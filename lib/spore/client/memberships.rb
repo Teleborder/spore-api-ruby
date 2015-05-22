@@ -13,9 +13,9 @@ module Spore
 
       def accept_membership(token)
         response = get "/invites/#{token}"
-        app_id = response.body["app"]
-        env = response.body["environment"]
-        email = response.body["email"]
+        app_id = response.body["invite"]["app"]
+        env = response.body["invite"]["environment"]
+        email = response.body["invite"]["email"]
         response = patch "/apps/#{app_id}/envs/#{env}/memberships/#{email}", { token: token }
         response.body["membership"]
       end
