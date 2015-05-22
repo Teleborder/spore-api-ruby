@@ -1,14 +1,12 @@
 require 'faraday'
 require 'faraday_middleware'
-# require 'spore/error'
+
 require 'spore/version'
 require 'spore/client/users'
 require 'spore/client/cells'
 require 'spore/client/apps'
 require 'spore/client/deployments'
 require 'spore/client/memberships'
-# require 'spore/response/parse_json'
-# require 'spore/response/raise_error'
 
 module Spore
 
@@ -56,20 +54,22 @@ module Spore
       request(:get, path, params)
     end
 
-    def post(path, params = nil)
-      request(:post, path, params)
+    def post(path, params, options = nil)
+      request(:post, path, params, options)
     end
 
-    def patch(path, params = nil)
-      request(:patch, path, params)
+    def patch(path, params, options = nil)
+      request(:patch, path, params, options)
     end
 
     def delete(path, params = nil)
       request(:delete, path, params)
     end
 
-    def request(method, path, parameters = {})
-      response = connection.send(method.to_sym, path, parameters)
+    def request(method, path, parameters = {}, options = nil)
+      response = connection.send(method.to_sym, path, parameters) do |req|
+        req.headers["Prefer"] = 'respond-async' if options && options[:async]
+      end
       if error = response.body["error"]
         raise error["message"]
       end

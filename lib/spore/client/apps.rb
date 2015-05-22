@@ -13,12 +13,12 @@ module Spore
 
       def create_app(app_id = nil, name)
         app_id = SecureRandom.uuid if app_id.nil?
-        response = post "/apps", { id: app_id, name: name }
+        response = post "/apps", { id: app_id, name: name }, { async: true }
         response.body["app"]
       end
 
       def change_app_owner(app_id, email)
-        response = patch "apps/#{app_id}", { email: email }
+        response = patch "apps/#{app_id}", { email: email }, { async: true }
         response.body["app"]
       end
 
