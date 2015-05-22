@@ -5,6 +5,8 @@ require 'spore/version'
 require 'spore/client/users'
 require 'spore/client/cells'
 require 'spore/client/apps'
+require 'spore/client/deployments'
+require 'spore/client/memberships'
 # require 'spore/response/parse_json'
 # require 'spore/response/raise_error'
 
@@ -14,6 +16,8 @@ module Spore
     include Spore::Client::Users
     include Spore::Client::Cells
     include Spore::Client::Apps
+    include Spore::Client::Deployments
+    include Spore::Client::Memberships
 
     attr_reader :email
     attr_reader :name
