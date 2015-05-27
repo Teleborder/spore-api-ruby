@@ -17,10 +17,8 @@ module Spore
     include Spore::Client::Deployments
     include Spore::Client::Memberships
 
-    attr_reader :email
-    attr_reader :name
-    attr_reader :key
-    attr_reader :current_user
+    attr_accessor :email
+    attr_accessor :key
 
     attr_accessor :api_endpoint
     attr_accessor :user_agent
@@ -29,6 +27,10 @@ module Spore
     def initialize(email = nil, key = nil)
       @email = email
       @key = key
+    end
+
+    def name=(deployment_name)
+      @email = deployment_name
     end
 
     def api_endpoint
