@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spore-api (0.0.1)
+    spore-api (0.0.2)
       faraday (~> 0.9)
       faraday_middleware (~> 0.9)
       htmlentities (~> 4.3)
