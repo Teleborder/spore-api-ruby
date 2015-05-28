@@ -9,6 +9,7 @@ require 'spore/client/deployments'
 require 'spore/client/memberships'
 
 module Spore
+  class RequestError < StandardError; end
 
   class Client
     include Spore::Client::Users
@@ -34,7 +35,7 @@ module Spore
     end
 
     def api_endpoint
-      @api_endpoint ||= 'http://pod.spore.sh/'
+      @api_endpoint ||= 'https://pod.spore.sh/'
     end
 
     def user_agent
