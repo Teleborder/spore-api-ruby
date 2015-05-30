@@ -23,7 +23,6 @@ module Spore
 
     attr_accessor :api_endpoint
     attr_accessor :user_agent
-    attr_accessor :middleware
 
     def initialize(email = nil, key = nil)
       @email = email
@@ -40,15 +39,6 @@ module Spore
 
     def user_agent
       @user_agent ||= "Spore #{Spore::Version.to_s}"
-    end
-
-    def middleware
-      @middleware ||= Faraday::RackBuilder.new do |builder|
-        builder.use Faraday::Request::UrlEncoded
-        builder.use Spore::Response::RaiseError
-        builder.use Spore::Response::ParseJSON
-        builder.adapter Faraday.default_adapter
-      end
     end
 
     private
