@@ -35,10 +35,4 @@ describe Spore::Client, :vcr do
 
     expect(client.key).to eq "key-123-key"
   end
-
-  it "should raise an error with invalid credentials" do
-    client = Spore::Client.new
-    expect { client.login "samsymons", "hunter2" }.to raise_error RuntimeError
-    expect(client.signed_in?).to be false
-  end
 end
