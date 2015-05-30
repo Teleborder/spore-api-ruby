@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://example%2B2223555%40spore.sh:66360e6c-b10d-48f5-894c-5890aa61b75d@pod.spore.sh/users/example+2223555@spore.sh
+    body:
+      encoding: UTF-8
+      string: token=uhxjhf0
+    headers:
+      User-Agent:
+      - Spore 0.0.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '766'
+      Etag:
+      - W/"2fe-6c7c4792"
+      Date:
+      - Sat, 30 May 2015 01:12:22 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "user": {
+            "email": "shayan+2223555@teleborder.com",
+            "verified": true
+          }
+        }
+    http_version: 
+  recorded_at: Sat, 30 May 2015 01:12:23 GMT
+recorded_with: VCR 2.9.3

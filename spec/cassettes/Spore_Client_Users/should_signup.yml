@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://pod.spore.sh/users
+    body:
+      encoding: UTF-8
+      string: email=example+2223555%40spore.sh&password=fakepassword2
+    headers:
+      User-Agent:
+      - Spore 0.0.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '87'
+      Etag:
+      - W/"57-d7ffecec"
+      Date:
+      - Sat, 30 May 2015 00:56:11 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "user": {
+            "email": "example+2223555@spore.sh",
+            "verified": false
+          }
+        }
+    http_version: 
+  recorded_at: Sat, 30 May 2015 00:56:13 GMT
+- request:
+    method: post
+    uri: https://pod.spore.sh/users/example+2223555@spore.sh/keys
+    body:
+      encoding: UTF-8
+      string: password=fakepassword2
+    headers:
+      User-Agent:
+      - Spore 0.0.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '51'
+      Etag:
+      - W/"33-d97d2d21"
+      Date:
+      - Sat, 30 May 2015 00:56:12 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "key": "66360e6c-b10d-48f5-894c-5890aa61b75d"
+        }
+    http_version: 
+  recorded_at: Sat, 30 May 2015 00:56:13 GMT
+recorded_with: VCR 2.9.3
